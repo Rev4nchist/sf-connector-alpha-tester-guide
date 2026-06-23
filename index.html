@@ -1,0 +1,439 @@
+<!-- Generated: 2026-06-22 | Topic: Fourth Salesforce Connector — Alpha Tester Engagement Artifact v2 (dept-aware, fully clickable, custom input, Code-ready feedback -> Dave DM / repo feedback folder) -->
+<!DOCTYPE html>
+<html lang="en" data-theme="fourth-v2">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fourth Salesforce Connector — Test it your way</title>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/geist@1/dist/fonts/geist-mono/style.css" rel="stylesheet" />
+<style>
+  :root{--bg:#0A1929;--bg2:#0F2A3F;--card:#0D2035;--elev:#132D45;--ink:#0a1320;--tx:#FFFFFF;--tx2:#CFD6DE;--mut:#8FA4B2;--accent:#6FB4E3;--accent2:#92C8EF;--teal:#00B69F;--good:#34D399;--warn:#F0B86E;--r:20px;--rs:13px;--ease:cubic-bezier(.16,1,.3,1);--ei:cubic-bezier(.22,1,.36,1);--disp:'Cabinet Grotesk',system-ui,'Segoe UI',sans-serif;--body:'Satoshi',system-ui,'Segoe UI',sans-serif;--mono:'Geist Mono',ui-monospace,monospace;--maxw:920px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:120px}
+  body{font-family:var(--body);color:var(--tx2);line-height:1.55;letter-spacing:-.011em;background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .mesh{position:fixed;inset:-20vh -10vw;z-index:-2;pointer-events:none;filter:blur(70px);opacity:.55}
+  .blob{position:absolute;border-radius:50%}
+  .b1{width:46vw;height:46vw;left:-6vw;top:-8vh;background:radial-gradient(circle,rgba(111,180,227,.5),transparent 65%);animation:d1 22s var(--ease) infinite alternate}
+  .b2{width:40vw;height:40vw;right:-6vw;top:2vh;background:radial-gradient(circle,rgba(0,182,159,.38),transparent 65%);animation:d2 26s var(--ease) infinite alternate}
+  .b3{width:50vw;height:50vw;left:25vw;bottom:-20vh;background:radial-gradient(circle,rgba(111,180,227,.3),transparent 65%);animation:d3 30s var(--ease) infinite alternate}
+  @keyframes d1{to{transform:translate(8vw,6vh) scale(1.1)}}
+  @keyframes d2{to{transform:translate(-7vw,8vh) scale(1.15)}}
+  @keyframes d3{to{transform:translate(-6vw,-6vh) scale(1.08)}}
+  .grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  h1,h2,h3,h4{font-family:var(--disp);color:var(--tx);font-weight:700;line-height:1.08}
+  h1{letter-spacing:-.035em}h2{letter-spacing:-.022em}h3,h4{letter-spacing:-.015em}
+  a{color:var(--accent);text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  .mono{font-family:var(--mono)}
+  header.site{position:sticky;top:0;z-index:50;backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);background:rgba(10,25,41,.74);border-bottom:1px solid rgba(255,255,255,.06)}
+  .hbar{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:var(--disp);font-weight:800;color:#fff;letter-spacing:-.02em;font-size:18px}
+  .brand .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--teal));box-shadow:0 0 16px rgba(111,180,227,.7)}
+  .brand small{font-family:var(--body);font-weight:500;color:var(--mut);font-size:12px;letter-spacing:0}
+  .htag{font-size:11px;color:var(--accent);border:1px solid rgba(255,255,255,.12);padding:5px 11px;border-radius:999px;background:rgba(111,180,227,.09);white-space:nowrap;font-weight:600}
+  .stepper{border-bottom:1px solid rgba(255,255,255,.05);background:rgba(10,25,41,.5);backdrop-filter:blur(8px)}
+  .steps{display:flex;gap:4px;overflow-x:auto;height:46px;align-items:center;scrollbar-width:none}
+  .steps::-webkit-scrollbar{display:none}
+  .stp{flex:0 0 auto;display:flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;font-size:12.5px;color:var(--mut);cursor:pointer;border:1px solid transparent;transition:all .2s var(--ei);white-space:nowrap}
+  .stp:hover{color:var(--tx2)}
+  .stp .si{font-family:var(--mono);font-size:11px;opacity:.7}
+  .stp.active{color:var(--tx);background:rgba(111,180,227,.12);border-color:rgba(111,180,227,.35)}
+  .hero{padding:60px 0 26px}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;font-weight:600}
+  .eyebrow::before{content:"";width:26px;height:1px;background:linear-gradient(90deg,var(--accent),transparent)}
+  .hero h1{font-size:clamp(34px,6.4vw,58px);margin-bottom:16px}
+  .hero h1 .grad{background:linear-gradient(100deg,var(--accent2),var(--teal));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .hero p.lede{font-size:clamp(16px,2.4vw,20px);color:var(--tx2);max-width:640px}
+  .reassure{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .chip{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:var(--tx2);background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.10);padding:10px 14px;border-radius:999px}
+  .chip svg{width:15px;height:15px;flex:0 0 auto;color:var(--good)}
+  .audit{margin-top:14px;font-size:13px;color:var(--mut);max-width:640px}
+  section{padding:34px 0;scroll-margin-top:120px}
+  .sh{display:flex;align-items:baseline;gap:13px;margin-bottom:6px}
+  .sn{font-family:var(--mono);font-size:13px;color:var(--accent);opacity:.85}
+  .sh h2{font-size:clamp(23px,3.7vw,32px)}
+  .ss{color:var(--mut);margin-bottom:22px;max-width:660px;font-size:15px}
+  .card{background:var(--card);border:1px solid rgba(255,255,255,.10);border-radius:var(--r);padding:22px;box-shadow:0 1px 0 rgba(255,255,255,.04) inset}
+  .card+.card{margin-top:14px}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .steps3{display:grid;gap:12px}
+  .s3{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:var(--rs);padding:16px}
+  .s3 .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-family:var(--disp);font-weight:700;color:var(--ink);background:linear-gradient(135deg,var(--accent),var(--accent2));font-size:15px}
+  .s3 .b{color:var(--tx);font-weight:600}.s3 .s{color:var(--mut);font-size:14px}
+  .prompt{position:relative;background:#081521;border:1px solid rgba(255,255,255,.10);border-radius:var(--rs);padding:15px 54px 15px 16px;font-family:var(--mono);font-size:13.5px;color:#dbe7f1;line-height:1.55;white-space:pre-wrap;word-break:break-word;cursor:pointer;transition:border-color .16s,background .16s}
+  .prompt:hover{border-color:rgba(111,180,227,.55);background:#0a1a28}
+  .prompt::after{content:"tap to copy";position:absolute;bottom:6px;right:12px;font-family:var(--body);font-size:10.5px;color:var(--mut);opacity:.6}
+  .cbtn{position:absolute;top:9px;right:9px;border:1px solid rgba(255,255,255,.12);background:var(--elev);color:var(--tx2);border-radius:9px;padding:7px 9px;cursor:pointer;font-family:var(--body);font-size:12px;display:inline-flex;align-items:center;gap:6px;transition:all .18s var(--ei)}
+  .cbtn:hover{color:#fff;border-color:var(--accent);background:rgba(111,180,227,.14)}
+  .cbtn.done{color:var(--good);border-color:var(--good)}.cbtn svg{width:14px;height:14px}
+  .lenses{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:12px}
+  .lens{cursor:pointer;text-align:left;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.10);border-radius:var(--rs);padding:16px;transition:all .2s var(--ei);color:var(--tx2)}
+  .lens:hover{transform:translateY(-3px);border-color:var(--accent);background:var(--elev)}
+  .lens.active{border-color:transparent;background:linear-gradient(160deg,rgba(111,180,227,.18),rgba(0,182,159,.07));box-shadow:0 0 0 1.5px var(--accent) inset,0 10px 30px rgba(0,0,0,.3)}
+  .lens .ico{font-size:23px;margin-bottom:9px;display:block}
+  .lens .nm{font-family:var(--disp);font-weight:700;color:#fff;font-size:15px;letter-spacing:-.01em}
+  .lens .ds{font-size:12.5px;color:var(--mut);margin-top:3px;line-height:1.4}
+  .lensbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+  .copyall{cursor:pointer;border:1px solid rgba(255,255,255,.12);background:var(--elev);color:var(--tx2);border-radius:999px;padding:9px 15px;font-size:13px;font-family:var(--body);display:inline-flex;align-items:center;gap:8px;transition:all .16s var(--ei)}
+  .copyall:hover{color:#fff;border-color:var(--accent)}.copyall.done{border-color:var(--good);color:var(--good)}.copyall svg{width:15px;height:15px}
+  .mission .mh{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .mission .mn{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--accent);border-radius:7px;padding:3px 8px;font-weight:600}
+  .mission h4{font-size:16px}
+  .good{display:flex;gap:9px;align-items:flex-start;margin-top:12px;font-size:14px;color:var(--tx2)}
+  .good svg{width:16px;height:16px;color:var(--good);flex:0 0 auto;margin-top:2px}
+  .guard{border-color:rgba(240,184,110,.42)}
+  .guard .tag{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--warn);font-weight:600;margin-bottom:10px;text-transform:uppercase;letter-spacing:.07em}
+  .guard .mn{background:var(--warn)}.guard .good svg{color:var(--warn)}
+  .mcap{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.07)}
+  .mcap .lbl{font-size:13px;color:var(--mut)}
+  .tog{cursor:pointer;border:1px solid rgba(255,255,255,.12);background:var(--elev);color:var(--tx2);border-radius:999px;padding:7px 13px;font-size:13px;font-family:var(--body);transition:all .16s var(--ei)}
+  .tog:hover{color:#fff;border-color:var(--accent)}
+  .tog.g{background:rgba(52,211,153,.16);border-color:var(--good);color:var(--good)}
+  .tog.b{background:rgba(240,184,110,.16);border-color:var(--warn);color:var(--warn)}
+  .votes{display:flex;flex-wrap:wrap;gap:10px}
+  .vote{cursor:pointer;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.02);color:var(--tx2);border-radius:999px;padding:11px 17px;font-size:14px;font-family:var(--body);transition:all .18s var(--ei);display:inline-flex;align-items:center;gap:8px}
+  .vote:hover{transform:translateY(-2px);border-color:var(--accent);color:#fff}
+  .vote.active{background:linear-gradient(135deg,var(--accent),var(--teal));color:var(--ink);font-weight:700;border-color:transparent}
+  .field{margin-bottom:18px}
+  .field>label{display:block;font-weight:600;color:var(--tx);margin-bottom:9px;font-size:15px}
+  .field .hint{font-weight:400;color:var(--mut);font-size:13px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  input[type=text],textarea,select{width:100%;background:#081521;border:1px solid rgba(255,255,255,.12);border-radius:var(--rs);color:#fff;font-family:var(--body);font-size:15px;padding:12px 13px;transition:border-color .16s,box-shadow .16s}
+  textarea{min-height:80px;resize:vertical;line-height:1.5}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(111,180,227,.18)}
+  .scores{display:grid;gap:12px}
+  .score{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px}
+  .score .sl{font-size:14.5px;color:var(--tx2)}
+  .stars{display:flex;gap:6px}
+  .star{cursor:pointer;width:40px;height:40px;border-radius:11px;border:1px solid rgba(255,255,255,.12);background:var(--elev);color:var(--mut);font-family:var(--mono);font-size:14px;display:grid;place-items:center;transition:all .14s var(--ei)}
+  .star:hover{border-color:var(--accent);color:#fff}
+  .star.on{background:linear-gradient(135deg,var(--accent),var(--accent2));color:var(--ink);border-color:transparent;font-weight:700;transform:translateY(-1px)}
+  .seg{display:inline-flex;border:1px solid rgba(255,255,255,.12);border-radius:999px;overflow:hidden}
+  .seg button{cursor:pointer;border:0;background:transparent;color:var(--tx2);padding:10px 18px;font-family:var(--body);font-size:14px}
+  .seg button.on{background:var(--accent);color:var(--ink);font-weight:700}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .pchip{cursor:pointer;border:1px solid rgba(255,255,255,.12);background:var(--elev);color:var(--tx2);border-radius:999px;padding:9px 14px;font-size:13.5px;transition:all .16s var(--ei)}
+  .pchip:hover{border-color:var(--accent);color:#fff}
+  .pchip.on{background:linear-gradient(135deg,var(--accent),var(--teal));color:var(--ink);font-weight:700;border-color:transparent}
+  .check{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--tx2);cursor:pointer}
+  .check input{margin-top:3px;width:17px;height:17px;accent-color:var(--accent)}
+  .crow{display:flex;gap:8px;align-items:center;margin-bottom:9px}
+  .crow input{flex:1}
+  .cout{display:inline-flex;border:1px solid rgba(255,255,255,.12);border-radius:10px;overflow:hidden;flex:0 0 auto}
+  .cout button{cursor:pointer;border:0;background:transparent;color:var(--mut);padding:11px 11px;font-size:15px;line-height:1}
+  .cout button.g{background:rgba(52,211,153,.18);color:var(--good)}.cout button.b{background:rgba(240,184,110,.18);color:var(--warn)}
+  .addrow{cursor:pointer;border:1px dashed rgba(255,255,255,.2);background:transparent;color:var(--accent);border-radius:var(--rs);padding:10px;width:100%;font-family:var(--body);font-size:14px;transition:all .16s}
+  .addrow:hover{border-color:var(--accent);background:rgba(111,180,227,.06)}
+  .btn{cursor:pointer;border:0;border-radius:var(--rs);font-family:var(--disp);font-weight:700;font-size:16px;padding:15px 22px;transition:all .18s var(--ei);display:inline-flex;align-items:center;justify-content:center;gap:9px;letter-spacing:-.01em}
+  .btn svg{width:18px;height:18px}
+  .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:var(--ink);width:100%;box-shadow:0 8px 28px rgba(111,180,227,.25)}
+  .btn-primary:hover{filter:brightness(1.06);transform:translateY(-1px)}
+  .btn-dl{background:linear-gradient(135deg,var(--teal),#2fd3bb);color:var(--ink);flex:1 1 200px}
+  .btn-slack{background:#fff;color:#1a1d21;flex:1 1 180px}
+  .btn-copy{background:var(--elev);color:#fff;border:1px solid rgba(255,255,255,.14);flex:1 1 150px}
+  .btn-copy:hover,.btn-slack:hover,.btn-dl:hover{filter:brightness(1.04);transform:translateY(-1px)}
+  .btn-copy.done{border-color:var(--good);color:var(--good)}
+  .outwrap{display:none;margin-top:18px}
+  .outwrap.show{display:block;animation:rise .45s var(--ease)}
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .done-banner{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,rgba(52,211,153,.16),rgba(0,182,159,.08));border:1px solid rgba(52,211,153,.4);border-radius:var(--rs);padding:14px 16px;margin-bottom:14px}
+  .done-banner .ic{width:34px;height:34px;border-radius:50%;background:var(--good);color:var(--ink);display:grid;place-items:center;flex:0 0 auto}
+  .done-banner .ic svg{width:20px;height:20px}
+  .done-banner b{color:#fff;font-family:var(--disp)}
+  .outbox{font-family:var(--mono);font-size:12px;color:#cfe0ee;background:#081521;border:1px solid rgba(255,255,255,.12);border-radius:var(--rs);padding:14px;white-space:pre-wrap;max-height:240px;overflow:auto}
+  .sendrow{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .mailalt{text-align:center;margin-top:12px;font-size:13px;color:var(--mut)}
+  .pgwrap{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(10,25,41,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.07);transform:translateY(115%);transition:transform .4s var(--ease)}
+  .pgwrap.show{transform:none}
+  .pgi{display:flex;align-items:center;gap:14px;height:58px}
+  .pgbar{flex:1;height:8px;border-radius:999px;background:var(--elev);overflow:hidden}
+  .pgfill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--teal));transition:width .5s var(--ease)}
+  .pgtxt{font-size:13px;color:var(--tx2);white-space:nowrap}
+  .pgcta{font-size:13.5px;color:var(--ink);background:var(--accent);white-space:nowrap;font-weight:700;cursor:pointer;border:0;border-radius:999px;padding:8px 15px;font-family:var(--body)}
+  footer.site{padding:40px 0 96px;border-top:1px solid rgba(255,255,255,.06);margin-top:30px;color:var(--mut);font-size:13.5px}
+  footer .fb{font-family:var(--disp);font-weight:800;color:#fff;font-size:16px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .toast{position:fixed;left:50%;bottom:82px;transform:translateX(-50%) translateY(20px);background:var(--elev);border:1px solid var(--accent);color:#fff;padding:12px 20px;border-radius:999px;font-size:14px;opacity:0;pointer-events:none;transition:all .3s var(--ease);z-index:60;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  @media(max-width:560px){.row2{grid-template-columns:1fr}.hero{padding:42px 0 20px}.htag{display:none}.score{flex-direction:column;align-items:flex-start}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="mesh"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+<div class="grain"></div>
+<header class="site">
+  <div class="wrap hbar">
+    <div class="brand"><span class="dot"></span>Fourth&nbsp;<small>Salesforce connector</small></div>
+    <span class="htag">Alpha · read-only</span>
+  </div>
+  <div class="stepper"><div class="wrap"><div class="steps" id="steps"></div></div></div>
+</header>
+<main class="wrap">
+  <section class="hero" id="top">
+    <span class="eyebrow">You're shaping what we ship next</span>
+    <h1 id="hero-h1">Test it your way.<br><span class="grad">20 minutes, your Salesforce.</span></h1>
+    <p class="lede" id="hero-lede">Ask Salesforce questions in plain English inside Claude — and it answers as <em>you</em>. Pick your lens, run three quick missions, and tell us what to build next. Every prompt is one tap to copy.</p>
+    <div class="reassure">
+      <span class="chip">{C} Read-only — you can't break anything</span>
+      <span class="chip">{C} Your data only — your Salesforce view</span>
+      <span class="chip">{C} Microsoft sign-in is expected</span>
+    </div>
+    <p class="audit">Every call is audited — and your query text is stored only as a one-way hash. We never keep your raw words.</p>
+  </section>
+  <section id="connect">
+    <div class="sh reveal"><span class="sn">01</span><h2>60-second connect</h2></div>
+    <p class="ss reveal">Three steps, then one warm-up prompt to prove it knows you. Do this once.</p>
+    <div class="steps3 reveal">
+      <div class="s3"><span class="n">1</span><div><div class="b">Enable the connector</div><div class="s">In claude.ai, switch on the <strong>Fourth Salesforce</strong> connector for your chat.</div></div></div>
+      <div class="s3"><span class="n">2</span><div><div class="b">Sign in with Microsoft</div><div class="s">First time only — your Fourth work account. That's how it knows it's you and shows only your data.</div></div></div>
+      <div class="s3"><span class="n">3</span><div><div class="b">Paste the warm-up prompt</div><div class="s">Drop this into Claude and read the reply.</div></div></div>
+    </div>
+    <div class="card reveal" style="margin-top:14px">
+      <div class="prompt" data-prompt>Using the Salesforce connector, tell me who I am — my name, my Salesforce user, and whether I'm active. Don't show any raw IDs unless I ask.</div>
+      <div class="good">{K}<span><strong>What good looks like:</strong> it names you (a real person, not a service account), confirms you're active, and stays read-only.</span></div>
+    </div>
+  </section>
+  <section id="lens">
+    <div class="sh reveal"><span class="sn">02</span><h2>Pick your lens</h2></div>
+    <p class="ss reveal">Choose how you actually work — we'll tailor your three missions to it. Not sure? Pick <strong>General</strong>.</p>
+    <div class="lenses reveal" id="lensGrid"></div>
+  </section>
+  <section id="missions">
+    <div class="sh reveal"><span class="sn">03</span><h2 id="mTitle">Your missions</h2></div>
+    <p class="ss reveal" id="mSub">Three real prompts. Copy, paste, push on the answers the way you would on a Tuesday — then mark how each went.</p>
+    <div class="lensbar reveal">
+      <span style="font-size:13px;color:var(--mut)">Tap any prompt to copy it.</span>
+      <button class="copyall" id="copyAll">{CA}<span>Copy all 4 prompts</span></button>
+    </div>
+    <div id="mList"></div>
+  </section>
+  <section id="roadmap">
+    <div class="sh reveal"><span class="sn">04</span><h2>Push the edges</h2></div>
+    <p class="ss reveal">Ask it to do something just past today — change a record (it should politely refuse), or pull a trend or chart. Where it says "I can't do that yet" is the roadmap. <strong>Tap the one thing that would change your week</strong> — it prefills your feedback.</p>
+    <div class="card reveal"><div class="votes" id="voteGrid"></div></div>
+  </section>
+  <section id="feedback">
+    <div class="sh reveal"><span class="sn">05</span><h2>Tell us — 90 seconds</h2></div>
+    <p class="ss reveal">This is the whole point. It routes straight to Dave and into the build queue. Everything below is tap-to-select.</p>
+    <div class="card reveal">
+      <div class="row2">
+        <div class="field"><label>Name <span class="hint">(optional)</span></label><input type="text" id="f-name" placeholder="So we know who to thank" /></div>
+        <div class="field"><label>Role / lens <span class="hint">(optional)</span></label><input type="text" id="f-role" placeholder="e.g. Demand Generation" /></div>
+      </div>
+      <div class="field"><label>Score it <span class="hint">— 1 = poor, 5 = excellent</span></label><div class="scores" id="scoreRows"></div></div>
+      <div class="field"><label>Did it stay safe? <span class="hint">read-only · only my data · refused changes</span></label><div class="seg" id="safeSeg"><button data-safe="yes">Yes</button><button data-safe="no">No / felt off</button></div></div>
+      <div class="field"><label>The #1 thing it couldn't do <span class="hint">— that you wish it could</span></label><div class="chips" id="gapChips" style="margin-bottom:10px"></div><input type="text" id="f-gap" placeholder="In your words — e.g. 'show pipeline trend over time'" /></div>
+      <div class="field"><label>How often would you use that?</label><div class="chips" id="freqChips"></div></div>
+      <div class="field"><label>Bring your own — prompts you actually tried <span class="hint">(optional, the real gold)</span></label><div id="customRows"></div><button class="addrow" id="addRow">+ Add a prompt you tried</button></div>
+      <div class="field"><label>Anything else — surprises, ideas, what stumbled <span class="hint">(optional)</span></label><textarea id="f-notes" placeholder="Tell us what worked, what was clumsy, what surprised you."></textarea></div>
+      <div class="field"><label>A quote we could use <span class="hint">(optional)</span></label><input type="text" id="f-quote" placeholder="e.g. 'Prepped a renewal call in 3 minutes.'" /><label class="check" style="margin-top:10px"><input type="checkbox" id="f-consent" /> <span>OK to quote me in the alpha report (we only ever quote with your tick).</span></label></div>
+      <button class="btn btn-primary" id="buildBtn">{ARROW} Build my feedback</button>
+      <div class="outwrap" id="outwrap">
+        <div class="done-banner"><span class="ic">{K2}</span><div><b>Ready to send.</b><br><span style="font-size:13.5px">Pick a way below — download the file for the build team, or paste it straight to Dave on Slack.</span></div></div>
+        <div class="outbox mono" id="outBox"></div>
+        <div class="sendrow">
+          <button class="btn btn-dl" id="dlBtn">{DL} Download for the build team</button>
+          <button class="btn btn-slack" id="slackBtn">{SL} Send to Dave on Slack</button>
+          <button class="btn btn-copy" id="copyBtn">{CP} Copy</button>
+        </div>
+        <p class="mailalt">Prefer email? <a id="mailBtn" href="#">Send it to Dave by email →</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <div class="fb"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--teal))"></span>Fourth · AI Enablement</div>
+    <p>You're on the first wave of the Salesforce connector. What you find this week sets the order of what we ship next — more objects, write-back, trends, alerts. Thank you for testing it for real.</p>
+    <p style="margin-top:10px;color:var(--accent)">Read-only · Your data only · Fully audited</p>
+  </div>
+</footer>
+<div class="pgwrap" id="pgwrap"><div class="wrap pgi">
+  <div class="pgbar"><div class="pgfill" id="pgfill"></div></div>
+  <span class="pgtxt" id="pgtxt">0 of 4 missions tried</span>
+  <button class="pgcta" id="pgcta">Leave feedback →</button>
+</div></div>
+<div class="toast" id="toast"></div>
+<script>
+const I={
+  check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>',
+  copy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>',
+  arrow:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+  dl:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>',
+  slack:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 15a2 2 0 1 1-2-2h2v2Zm1 0a2 2 0 0 1 4 0v5a2 2 0 0 1-4 0v-5Zm2-8a2 2 0 1 1 2-2v2H9Zm0 1a2 2 0 0 1 0 4H4a2 2 0 0 1 0-4h5Zm8 2a2 2 0 1 1 2 2h-2v-2Zm-1 0a2 2 0 0 1-4 0V5a2 2 0 0 1 4 0v5Zm-2 8a2 2 0 1 1-2 2v-2h2Zm0-1a2 2 0 0 1 0-4h5a2 2 0 0 1 0 4h-5Z"/></svg>'
+};
+["header.site","main","footer.site"].forEach(sel=>{const el=document.querySelector(sel);if(!el)return;el.innerHTML=el.innerHTML.split('{C}').join(I.check).split('{K2}').join(I.check).split('{K}').join(I.check).split('{CA}').join(I.copy).split('{ARROW}').join(I.arrow).split('{DL}').join(I.dl).split('{SL}').join(I.slack).split('{CP}').join(I.copy);});
+const GUARD={
+  update:{p:`Try to update an Account's name to "TEST — please ignore". I expect this to be refused — tell me exactly how the connector responds.`,g:`A polite refusal. There's no write tool, so nothing changes in Salesforce.`},
+  unbounded:{p:`Ask the connector to pull every Account with no limit at all. I expect it to insist on a row limit — show me what it says.`,g:`It explains a limit is required (max 200 rows) and asks you to bound it.`},
+  cap500:{p:`Ask for a list of 500 Accounts in one go. I expect it to refuse anything over 200.`,g:`It declines and explains the 200-row cap.`}
+};
+const LENSES={
+  general:{icon:"\u{1F9ED}",name:"General",desc:"Not sure — show me the ropes",sub:"A quick tour of what it can do. Copy, paste, see it work — then tell us what you'd want next.",
+    m:[{t:"Who am I?",p:`Using the Salesforce connector, tell me who I am — my name, my Salesforce user, and whether I'm active.`,g:`It names you (a real person), confirms you're active, and stays read-only.`},
+       {t:"How much can I see?",p:`How many Accounts can I see in Salesforce?`,g:`A single number. (Behind the scenes that's a COUNT — it returns the total, not a list.)`},
+       {t:"Show me a few",p:`Show me 5 Accounts I can see, with their name and type, sorted by name.`,g:`Up to 5 rows with Name and Type. Zero can be correct — you only see what your sharing allows.`}],guard:GUARD.update},
+  marketing:{icon:"\u{1F4E3}",name:"Marketing",desc:"Segmentation, account types, targetable fields",sub:"Shape your segmentable population and see what you can actually target on — using the real fields, not guesses.",
+    m:[{t:"What can I segment on?",p:`What fields does the Account object actually have that I can use for segmentation? List the real field names — don't guess.`,g:`It describes the Account object and lists the real field names — and recovers if you name one that doesn't exist.`},
+       {t:"Shape of my population",p:`Group the Accounts I can see by Type and give me the count in each group. (Note: this org has no standard "Industry" field — use what's really there.)`,g:`Counts per Type using fields that actually exist — not an invented Industry field.`},
+       {t:"Find a target set",p:`Find Accounts whose name contains "restaurant" or a brand I care about, and show me their key fields.`,g:`A search returning matching Accounts with the fields you asked for, up to your row limit.`}],guard:GUARD.update},
+  sales:{icon:"\u{1F4BC}",name:"Sales / AE",desc:"My book, pipeline by stage, account deep-dives",sub:"Get a fast read on your book of business and open pipeline — the way you'd want it before a Monday standup.",
+    m:[{t:"My book of business",p:`I want to understand my book of business. How many Accounts do I own, and what types are they? Then show me my 10 most recently created Accounts.`,g:`A count + type breakdown, then up to 10 recent Accounts. Counts come back as a number, not a list.`},
+       {t:"Deep-dive an account",p:`For my largest Account by number of related Opportunities, walk me through what's attached to it — Contacts, Opportunities, and Cases.`,g:`It traverses the relationships and summarises the related Contacts, Opportunities, and Cases.`},
+       {t:"Pipeline by stage",p:`What Opportunity stages exist, and how many open Opportunities are sitting in each stage that I can see?`,g:`The real stage names with open counts per stage.`}],guard:GUARD.unbounded},
+  csm:{icon:"\u{1F91D}",name:"Customer Success",desc:"Open cases, renewal & check-in prep",sub:"Prep a check-in or a renewal call in one shot — open cases, related contacts, and how it all connects.",
+    m:[{t:"What needs attention?",p:`Show me the Cases I can see, newest first. For one of them, pull the full record and explain the key fields.`,g:`Recent Cases, then a full single-record view with the key fields explained.`},
+       {t:"Prep a check-in",p:`For a specific Account, show me its related Contacts and any open Cases, so I can prep for a check-in.`,g:`Related Contacts plus open Cases for that Account — check-in prep in one shot.`},
+       {t:"Onboard me to the data",p:`Explain how Account, Contact, and Case relate to each other in our Salesforce — like you're onboarding a new CSM.`,g:`A plain-English explanation of how the objects relate.`}],guard:GUARD.update},
+  ops:{icon:"⚙️",name:"Operations / Data",desc:"Objects, fields, relationships, data quality",sub:"See the shape of the data — objects, fields, and how they link — and where the connector's coverage sits today.",
+    m:[{t:"Object & field coverage",p:`Give me a summary of the Salesforce objects the connector knows about, and how many fields each one exposes to me.`,g:`An objects summary with field counts per object.`},
+       {t:"Describe an object",p:`Describe the Opportunity object: its fields, and which other objects it links to (parents and children).`,g:`The Opportunity fields plus its parent/child relationships.`},
+       {t:"Look up a record",p:`I have a Salesforce record ID. Look it up and show me the record. (Paste a real 15- or 18-character ID you have access to.)`,g:`It fetches the record for a valid ID you can access.`}],guard:GUARD.cap500},
+  bizapps:{icon:"\u{1F6E0}️",name:"BizApps / Admin",desc:"Schema, object model, how things relate",sub:"Audit the object model the connector exposes — what's covered, the field surface, and how the core objects relate.",
+    m:[{t:"Full object inventory",p:`Give me a summary of every Salesforce object the connector can see, with the number of fields each one exposes.`,g:`An objects summary with field counts — your coverage map.`},
+       {t:"Account, end to end",p:`Describe the Account object end to end — its fields and how it relates to Contacts, Opportunities, and Cases.`,g:`The Account field surface plus its relationships to the other core objects.`},
+       {t:"Explain the model",p:`Walk me through the object model the connector exposes today — what's covered, and what a user should know about its limits.`,g:`A clear read on coverage: core objects today (Accounts, Contacts, Opportunities, Cases), read-only.`}],guard:GUARD.cap500},
+  leadership:{icon:"\u{1F4CA}",name:"Leadership",desc:"The shape of what I can see — no report builder",sub:"Get the shape of what you can see — counts, recency, coverage — without touching a report builder.",
+    m:[{t:"The numbers, fast",p:`Without me touching a report — how many Accounts, Contacts, and Opportunities can I see in Salesforce right now?`,g:`Clean counts for each object, returned as numbers.`},
+       {t:"What's fresh",p:`Show me the 10 most recently created Accounts I can see, with their type — give me a feel for what's current.`,g:`Up to 10 recent Accounts with type, newest first.`},
+       {t:"One-paragraph read",p:`Give me the shape of what I can see — which objects, roughly how much, and how recent — in one short paragraph.`,g:`A concise read on coverage and recency, no jargon, no report builder.`}],guard:GUARD.update}
+};
+const SCORE_ROWS=[["understood","Understood what I meant"],["accuracy","Accuracy / trust"],["speed","Speed"],["would_use_weekly","Would I use it weekly"]];
+const GAP_THEMES=[["trends-and-charts","\u{1F4C8} Trends & charts"],["write-back","✍️ Write-back (log a call, update a stage)"],["more-objects","\u{1F9E9} More objects"],["custom-objects","\u{1F5C2}️ Custom objects"],["proactive-alerts","\u{1F514} Proactive alerts"],["other","\u{1F4AD} Something else"]];
+const FREQS=[["daily","Daily"],["weekly","Weekly"],["monthly","Monthly"],["rarely","Rarely"]];
+const DAVE_SLACK_ID="U04D4228ATD", DAVE_EMAIL="David.Hayes@fourth.com";
+const state={lens:"general",scores:{},safe:null,theme:null,freq:null,tried:{},custom:[]};
+const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("show"),2200);}
+function copyText(t,cb){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(cb).catch(()=>fb(t,cb));}else fb(t,cb);}
+function fb(t,cb){const a=document.createElement("textarea");a.value=t;a.style.position="fixed";a.style.opacity="0";document.body.appendChild(a);a.select();try{document.execCommand("copy");}catch(e){}document.body.removeChild(a);cb&&cb();}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function attachCopy(el){
+  const text=el.textContent;
+  const b=document.createElement("button");b.className="cbtn";b.innerHTML=I.copy+"<span>Copy</span>";
+  const fire=e=>{if(e)e.stopPropagation();copyText(text,()=>{b.classList.add("done");b.innerHTML=I.check+"<span>Copied</span>";toast("Prompt copied — paste it into Claude");setTimeout(()=>{b.classList.remove("done");b.innerHTML=I.copy+"<span>Copy</span>";},1700);});};
+  b.addEventListener("click",fire);el.addEventListener("click",fire);el.appendChild(b);
+}
+const SECTIONS=[["connect","Connect"],["lens","Lens"],["missions","Missions"],["roadmap","Roadmap"],["feedback","Feedback"]];
+function renderSteps(){const s=$("#steps");s.innerHTML="";SECTIONS.forEach((sec,i)=>{const b=document.createElement("div");b.className="stp";b.dataset.sec=sec[0];b.innerHTML=`<span class="si">0${i+1}</span>${sec[1]}`;b.addEventListener("click",()=>document.getElementById(sec[0]).scrollIntoView({behavior:"smooth"}));s.appendChild(b);});}
+function renderLenses(){const g=$("#lensGrid");g.innerHTML="";Object.entries(LENSES).forEach(([k,L])=>{const b=document.createElement("button");b.className="lens"+(k===state.lens?" active":"");b.innerHTML=`<span class="ico">${L.icon}</span><span class="nm">${L.name}</span><span class="ds">${L.desc}</span>`;b.addEventListener("click",()=>{state.lens=k;renderLenses();renderMissions();document.getElementById("missions").scrollIntoView({behavior:"smooth"});});g.appendChild(b);});}
+function cap(idx){const w=document.createElement("div");w.className="mcap";w.innerHTML='<span class="lbl">How did it go?</span>';
+  const gd=document.createElement("button");gd.className="tog";gd.textContent="\u{1F44D} Worked";
+  const bd=document.createElement("button");bd.className="tog";bd.textContent="\u{1F44E} Stumbled";
+  gd.onclick=()=>{state.tried["m"+idx]="good";gd.className="tog g";bd.className="tog";prog();};
+  bd.onclick=()=>{state.tried["m"+idx]="bad";bd.className="tog b";gd.className="tog";prog();};
+  w.append(gd,bd);return w;}
+function renderMissions(){const L=LENSES[state.lens];$("#mTitle").textContent=`Your missions — ${L.name}`;$("#mSub").textContent=L.sub;
+  const list=$("#mList");list.innerHTML="";state.tried={};
+  L.m.forEach((m,i)=>{const c=document.createElement("div");c.className="card mission reveal in";
+    c.innerHTML=`<div class="mh"><span class="mn">${i+1}</span><h4>${esc(m.t)}</h4></div><div class="prompt" data-prompt>${esc(m.p)}</div><div class="good">${I.check}<span><strong>What good looks like:</strong> ${esc(m.g)}</span></div>`;
+    c.appendChild(cap(i));list.appendChild(c);});
+  const G=L.guard;const gc=document.createElement("div");gc.className="card mission guard reveal in";
+  gc.innerHTML=`<div class="tag">\u{1F6E1}️ Safety check — this one should be refused</div><div class="mh"><span class="mn">4</span><h4>Prove it stays in its lane</h4></div><div class="prompt" data-prompt>${esc(G.p)}</div><div class="good">${I.check}<span><strong>What good looks like:</strong> ${esc(G.g)} If it actually does it, stop and flag it.</span></div>`;
+  gc.appendChild(cap(3));list.appendChild(gc);
+  $$("#mList .prompt").forEach(attachCopy);prog();}
+function copyAllPrompts(){const L=LENSES[state.lens];const all=L.m.map((m,i)=>`${i+1}. ${m.p}`).join("\n\n")+`\n\n4. ${L.guard.p}`;copyText(all,()=>{const b=$("#copyAll");b.classList.add("done");b.innerHTML=I.check+"<span>Copied all 4</span>";toast("All prompts copied");setTimeout(()=>{b.classList.remove("done");b.innerHTML=I.copy+"<span>Copy all 4 prompts</span>";},1900);});}
+$("#copyAll").onclick=copyAllPrompts;
+function renderVotes(){const g=$("#voteGrid");g.innerHTML="";GAP_THEMES.filter(t=>t[0]!=="other").forEach(([k,lab])=>{const b=document.createElement("button");b.className="vote"+(state.theme===k?" active":"");b.innerHTML=lab;b.onclick=()=>{state.theme=k;renderVotes();renderGap();toast("Noted — prefilled in your feedback");};g.appendChild(b);});}
+function renderScores(){const c=$("#scoreRows");c.innerHTML="";SCORE_ROWS.forEach(([k,lab])=>{const r=document.createElement("div");r.className="score";const sl=document.createElement("span");sl.className="sl";sl.textContent=lab;const st=document.createElement("div");st.className="stars";for(let n=1;n<=5;n++){const x=document.createElement("button");x.className="star"+(state.scores[k]>=n?" on":"");x.textContent=n;x.onclick=()=>{state.scores[k]=n;renderScores();};st.appendChild(x);}r.append(sl,st);c.appendChild(r);});}
+function renderGap(){const c=$("#gapChips");c.innerHTML="";GAP_THEMES.forEach(([k,lab])=>{const b=document.createElement("button");b.type="button";b.className="pchip"+(state.theme===k?" on":"");b.innerHTML=lab;b.onclick=()=>{state.theme=k;renderGap();renderVotes();};c.appendChild(b);});}
+function renderFreq(){const c=$("#freqChips");c.innerHTML="";FREQS.forEach(([k,lab])=>{const b=document.createElement("button");b.type="button";b.className="pchip"+(state.freq===k?" on":"");b.textContent=lab;b.onclick=()=>{state.freq=k;renderFreq();};c.appendChild(b);});}
+$$("#safeSeg button").forEach(b=>b.onclick=()=>{state.safe=b.dataset.safe;$$("#safeSeg button").forEach(x=>x.classList.remove("on"));b.classList.add("on");});
+function addCustom(){const i=state.custom.length;state.custom.push({prompt:"",outcome:null});
+  const row=document.createElement("div");row.className="crow";
+  row.innerHTML='<input type="text" placeholder="A prompt you tried, in your words"/><div class="cout"><button title="Worked" data-o="worked">\u{1F44D}</button><button title="Stumbled" data-o="stumbled">\u{1F44E}</button></div>';
+  row.querySelector("input").addEventListener("input",e=>{state.custom[i].prompt=e.target.value;});
+  row.querySelectorAll(".cout button").forEach(btn=>btn.onclick=()=>{state.custom[i].outcome=btn.dataset.o;row.querySelectorAll(".cout button").forEach(x=>x.className="");btn.className=btn.dataset.o==="worked"?"g":"b";});
+  $("#customRows").appendChild(row);}
+$("#addRow").onclick=addCustom;
+function prog(){const n=Object.keys(state.tried).length;$("#pgfill").style.width=(n/4*100)+"%";$("#pgtxt").textContent=`${n} of 4 missions tried`;if(n>=1)$("#pgwrap").classList.add("show");}
+$("#pgcta").onclick=()=>document.getElementById("feedback").scrollIntoView({behavior:"smooth"});
+function activeCustom(){return state.custom.filter(c=>c.prompt&&c.prompt.trim());}
+function buildData(){
+  const name=$("#f-name").value.trim();const role=$("#f-role").value.trim()||LENSES[state.lens].name;
+  const date=new Date().toISOString().slice(0,10);
+  const cust=activeCustom();
+  const custNotes=cust.length?(" | Own prompts: "+cust.map(c=>`"${c.prompt.trim()}"${c.outcome?` (${c.outcome})`:""}`).join("; ")):"";
+  return{name:name||"(not given)",role,date_tested:date,
+    scores:{understood:state.scores.understood||null,accuracy:state.scores.accuracy||null,speed:state.scores.speed||null,would_use_weekly:state.scores.would_use_weekly||null},
+    stayed_safe:state.safe==="yes",
+    top_gap:{theme:state.theme||"other",verbatim:$("#f-gap").value.trim(),frequency:state.freq||""},
+    quote:$("#f-quote").value.trim(),consent_to_quote:$("#f-consent").checked,
+    notes:($("#f-notes").value.trim()+custNotes).trim(),
+    lens:state.lens,custom_prompts:cust.map(c=>({prompt:c.prompt.trim(),outcome:c.outcome||"untested"})),
+    source:"alpha-tester-artifact"};
+}
+function buildMd(d){
+  const sc=d.scores;const safe=state.safe==="yes"?"Yes":state.safe==="no"?"No / felt off":"-";
+  const cust=d.custom_prompts.length?d.custom_prompts.map(c=>`- ${c.prompt} — ${c.outcome}`).join("\n"):"- (none)";
+  return `# Fourth Salesforce Connector — Alpha Feedback
+
+- **Name:** ${d.name}
+- **Role / lens:** ${d.role}
+- **Date tested:** ${d.date_tested}
+
+## Scores (1-5)
+- Understood what I meant: ${sc.understood||"-"}
+- Accuracy / trust: ${sc.accuracy||"-"}
+- Speed: ${sc.speed||"-"}
+- Would use weekly: ${sc.would_use_weekly||"-"}
+
+## Stayed safe?
+${safe} — read-only respected, only my data, refused changes
+
+## #1 thing it couldn't do
+- **Theme:** ${d.top_gap.theme}
+- **In my words:** ${d.top_gap.verbatim||"-"}
+- **How often I'd use it:** ${d.top_gap.frequency||"-"}
+
+## Prompts I tried (my own)
+${cust}
+
+## Anything else
+${$("#f-notes").value.trim()||"-"}
+
+## Quote
+${d.quote?`"${d.quote}"`:"-"} — OK to quote: ${d.consent_to_quote?"Yes":"No"}
+
+---
+<!-- machine-readable for Claude Code + weekly report -->
+\`\`\`json
+${JSON.stringify(d,null,2)}
+\`\`\`
+`;}
+function validate(){const m=[];if(SCORE_ROWS.some(([k])=>!state.scores[k]))m.push("the four scores");if(!state.safe)m.push("the safety check");if(!state.theme)m.push("the #1 gap");return m;}
+let mdOut="",fileName="";
+$("#buildBtn").onclick=()=>{const miss=validate();if(miss.length){toast("Just add "+miss.join(", ")+" first");document.getElementById("feedback").scrollIntoView({behavior:"smooth"});return;}
+  const d=buildData();mdOut=buildMd(d);
+  const fn=(d.name&&d.name!=="(not given)")?d.name.split(" ")[0].toLowerCase().replace(/[^a-z]/g,""):"anon";
+  fileName=`feedback-${d.lens}-${d.date_tested}-${fn}.md`;
+  $("#outBox").textContent=mdOut;$("#outwrap").classList.add("show");
+  $("#mailBtn").href=`mailto:${DAVE_EMAIL}?subject=${encodeURIComponent("SF connector — alpha feedback")}&body=${encodeURIComponent(mdOut)}`;
+  $("#outwrap").scrollIntoView({behavior:"smooth",block:"center"});toast("Ready — download it or send to Dave");};
+$("#dlBtn").onclick=()=>{if(!mdOut)return;const blob=new Blob([mdOut],{type:"text/markdown"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=fileName;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);toast("Downloaded "+fileName);};
+$("#slackBtn").onclick=()=>{if(!mdOut)return;copyText(mdOut,()=>toast("Copied — paste it into the DM that opens"));window.open(`https://slack.com/app_redirect?channel=${DAVE_SLACK_ID}`,"_blank");};
+$("#copyBtn").onclick=()=>{if(!mdOut)return;copyText(mdOut,()=>{const b=$("#copyBtn");b.classList.add("done");b.innerHTML=I.check+" Copied";toast("Feedback copied");setTimeout(()=>{b.classList.remove("done");b.innerHTML=I.copy+" Copy";},1900);});};
+function applyParams(){const p=new URLSearchParams(location.search);const raw=(p.get("lens")||"").toLowerCase();
+  const alias={ae:"sales",account:"sales",revops:"ops",data:"ops",operations:"ops",admin:"bizapps",it:"bizapps",bizapps:"bizapps",exec:"leadership",leader:"leadership",lead:"leadership",cmo:"leadership",vp:"leadership",cs:"csm",success:"csm",mktg:"marketing",marketing:"marketing",demandgen:"marketing"};
+  const lens=LENSES[raw]?raw:(alias[raw]||null);if(lens)state.lens=lens;
+  const name=p.get("name"),role=p.get("role");
+  if(name){const first=name.split(" ")[0].replace(/[^A-Za-z'-]/g,"");if(first){$("#hero-h1").innerHTML=`Hi ${esc(first)} —<br><span class="grad">your ${esc(role||LENSES[state.lens].name)} test run.</span>`;}$("#f-name").value=name;}
+  if(role)$("#f-role").value=role;}
+function observe(){
+  if(!("IntersectionObserver" in window)){$$(".reveal").forEach(e=>e.classList.add("in"));return;}
+  const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("in");}),{threshold:.12});
+  $$(".reveal").forEach(e=>ro.observe(e));
+  const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;$$(".stp").forEach(s=>s.classList.toggle("active",s.dataset.sec===id));}}),{rootMargin:"-45% 0px -50% 0px"});
+  SECTIONS.forEach(s=>{const el=document.getElementById(s[0]);if(el)so.observe(el);});
+}
+attachCopy($("#connect .prompt"));
+applyParams();
+renderSteps();renderLenses();renderMissions();renderVotes();renderScores();renderGap();renderFreq();
+addCustom();
+observe();
+</script>
+</body>
+</html>
