@@ -423,9 +423,13 @@ function applyParams(){const p=new URLSearchParams(location.search);const raw=(p
   if(name){const first=name.split(" ")[0].replace(/[^A-Za-z'-]/g,"");if(first){$("#hero-h1").innerHTML=`Hi ${esc(first)} —<br><span class="grad">your ${esc(role||LENSES[state.lens].name)} test run.</span>`;}$("#f-name").value=name;}
   if(role)$("#f-role").value=role;}
 function observe(){
-  if(!("IntersectionObserver" in window)){$$(".reveal").forEach(e=>e.classList.add("in"));return;}
-  const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("in");}),{threshold:.12});
+  const revealAll=()=>$$(".reveal").forEach(e=>e.classList.add("in"));
+  if(!("IntersectionObserver" in window)){revealAll();return;}
+  const ro=new IntersectionObserver((es,obs)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");obs.unobserve(e.target);}}),{rootMargin:"0px 0px -6% 0px",threshold:.01});
   $$(".reveal").forEach(e=>ro.observe(e));
+  // safety nets so no section can ever stay blank if the observer misfires
+  const net=()=>{const vh=window.innerHeight||800;$$(".reveal").forEach(e=>{if(!e.classList.contains("in")&&e.getBoundingClientRect().top<vh*1.15)e.classList.add("in");});};
+  net();window.addEventListener("scroll",net,{passive:true});window.addEventListener("resize",net,{passive:true});setTimeout(revealAll,1300);
   const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;$$(".stp").forEach(s=>s.classList.toggle("active",s.dataset.sec===id));}}),{rootMargin:"-45% 0px -50% 0px"});
   SECTIONS.forEach(s=>{const el=document.getElementById(s[0]);if(el)so.observe(el);});
 }
